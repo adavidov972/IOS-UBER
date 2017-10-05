@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "ViewController.(btnTop(Any) -&gt; ()).(closure #2):ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "txtPassword.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SignUpViewController.(makeSignup() -&gt; ()).(closure #1):SignUpViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "AcceptRequestViewController.viewDidLoad() -&gt; ():AcceptRequestViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "riderName">
+            </PersistentString>
+            <PersistentString
+               value = "riderLocation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DriverNewRideViewController.locationManager(CLLocationManager, didUpdateLocations : [CLLocation]) -&gt; ():DriverNewRideViewController.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
