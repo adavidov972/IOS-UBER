@@ -12,6 +12,7 @@ import MapKit
 class DriverTableViewRequestsListCellTableViewCell: UITableViewCell {
     
     
+    @IBOutlet weak var cellBackroundView: UIView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var lblRiderName: UILabel!
     @IBOutlet weak var lblDistance: UILabel!

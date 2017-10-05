@@ -26,10 +26,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="94.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aou-pB-Sck">
-                                            <rect key="frame" x="0.0" y="-10" width="375" height="119"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.83820593750000005" green="0.83820593750000005" blue="0.83820593750000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aou-pB-Sck">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="94.5"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         </view>
                                         <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="s7F-GK-mcH">
                                             <rect key="frame" x="8" y="8" width="80" height="80"/>
@@ -50,8 +49,15 @@
                                             <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Aou-pB-Sck" firstAttribute="top" secondItem="bbN-KW-mPU" secondAttribute="top" id="OVc-Qh-ii6"/>
+                                        <constraint firstAttribute="trailing" secondItem="Aou-pB-Sck" secondAttribute="trailing" id="Sv4-Gy-x2G"/>
+                                        <constraint firstItem="Aou-pB-Sck" firstAttribute="leading" secondItem="bbN-KW-mPU" secondAttribute="leading" id="g3V-oK-0Df"/>
+                                        <constraint firstAttribute="bottom" secondItem="Aou-pB-Sck" secondAttribute="bottom" id="ngq-2Q-cH2"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="cellBackroundView" destination="Aou-pB-Sck" id="3vj-Ku-76S"/>
                                     <outlet property="lblDistance" destination="wlP-kc-isw" id="cvA-rh-txD"/>
                                     <outlet property="lblRiderName" destination="xzY-Cr-109" id="2lo-l0-0Wx"/>
                                     <outlet property="mapView" destination="s7F-GK-mcH" id="XiP-OK-kqx"/>
