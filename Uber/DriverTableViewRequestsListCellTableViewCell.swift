@@ -19,7 +19,7 @@ class DriverTableViewRequestsListCellTableViewCell: UITableViewCell {
     var distanceFromDriverToRider:CLLocationDistance = 0.0
     
 
-    func setRequest(request:Request, driverClLocation:CLLocation) {
+    func setRequest(request:Request, driverClLocation:CLLocation, isEven:Bool) {
         
         let riderName = request.riderName
         let riderLatitude = request.riderLocation?.latitude
@@ -40,5 +40,9 @@ class DriverTableViewRequestsListCellTableViewCell: UITableViewCell {
         
         lblRiderName.text = riderName
         lblDistance.text = "Rider is \(distanceFromDriverToRider) Km away from you"
+        
+        if isEven {
+            cellBackroundView.backgroundColor = UIColor .groupTableViewBackground
+        }
     }
 }

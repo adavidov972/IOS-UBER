@@ -13,13 +13,21 @@ class Rider: NSObject {
     
     var userEmail : String
     var userUid : String
+    var userPic : UIImage
     var userLocation : CLLocationCoordinate2D
     
 
-    init(userEmail:String, userUid : String, userLocation : CLLocationCoordinate2D) {
+    init(userEmail:String, userUid : String, userLocation : CLLocationCoordinate2D, userPic:UIImage) {
         
         self.userEmail = userEmail
         self.userUid = userUid
         self.userLocation = userLocation
+        self.userPic = userPic
     }
+    
+//    override init() {
+//        super.init()
+//    }
+//    
+    
 }

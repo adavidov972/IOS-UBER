@@ -42,29 +42,70 @@
                                     <action selector="btnCallOrCancelUber:" destination="Dms-TU-nWO" eventType="touchUpInside" id="cQ6-jy-UmL"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fmh-Aq-KCl">
+                                <rect key="frame" x="0.0" y="64" width="170" height="603"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4g9-v1-PIj">
+                                        <rect key="frame" x="61" y="67" width="48" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="Es4-Ht-jLK"/>
+                                            <constraint firstAttribute="height" constant="48" id="Rtf-HB-ua2"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="icons8-user_group_man_man"/>
+                                        <connections>
+                                            <action selector="addOrChageUserPhoto:" destination="Dms-TU-nWO" eventType="touchUpInside" id="82a-Ha-3c2"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Me3-wV-8Bb">
+                                        <rect key="frame" x="20" y="175" width="130" height="70"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TL6-xW-eDM">
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="30"/>
+                                                <state key="normal" title="Change propeties"/>
+                                                <connections>
+                                                    <action selector="changePropertiesTapped:" destination="Dms-TU-nWO" eventType="touchUpInside" id="oby-9b-EYs"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQQ-Ii-OGC">
+                                                <rect key="frame" x="0.0" y="40" width="130" height="30"/>
+                                                <state key="normal" title="Logout"/>
+                                                <connections>
+                                                    <action selector="logoutTapped:" destination="Dms-TU-nWO" eventType="touchUpInside" id="ejJ-Ga-6O8"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="PIh-bj-LWy"/>
+                                    <constraint firstItem="Me3-wV-8Bb" firstAttribute="leading" secondItem="Fmh-Aq-KCl" secondAttribute="leading" constant="20" id="V31-pG-s1d"/>
+                                    <constraint firstItem="4g9-v1-PIj" firstAttribute="centerX" secondItem="Fmh-Aq-KCl" secondAttribute="centerX" id="WhD-ax-bLJ"/>
+                                    <constraint firstItem="Me3-wV-8Bb" firstAttribute="top" secondItem="4g9-v1-PIj" secondAttribute="bottom" constant="60" id="ipI-Ka-SN3"/>
+                                    <constraint firstItem="4g9-v1-PIj" firstAttribute="top" secondItem="Fmh-Aq-KCl" secondAttribute="top" constant="67" id="qcn-UL-GzJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Me3-wV-8Bb" secondAttribute="trailing" constant="20" id="vyQ-sN-3pZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xSu-Tz-Mh9" firstAttribute="leading" secondItem="NKs-65-d4z" secondAttribute="leadingMargin" constant="20" id="3O8-MM-MS8"/>
                             <constraint firstItem="xSu-Tz-Mh9" firstAttribute="centerX" secondItem="NKs-65-d4z" secondAttribute="centerX" id="8Fm-Pj-O8I"/>
                             <constraint firstItem="Z33-uU-Jkl" firstAttribute="leading" secondItem="NKs-65-d4z" secondAttribute="leading" id="8MY-Ou-n80"/>
+                            <constraint firstItem="Fmh-Aq-KCl" firstAttribute="leading" secondItem="NKs-65-d4z" secondAttribute="leading" id="9dX-lG-Y9Z"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xSu-Tz-Mh9" secondAttribute="trailing" constant="20" id="9nm-NC-JVd"/>
                             <constraint firstItem="Z33-uU-Jkl" firstAttribute="top" secondItem="stb-VY-iL8" secondAttribute="bottom" id="EsV-l2-PQQ"/>
                             <constraint firstItem="xSu-Tz-Mh9" firstAttribute="top" secondItem="LBQ-US-ahY" secondAttribute="bottom" constant="40" id="Gnv-0W-a1C"/>
                             <constraint firstItem="LBQ-US-ahY" firstAttribute="top" secondItem="stb-VY-iL8" secondAttribute="bottom" constant="20" id="QNk-C0-fT3"/>
+                            <constraint firstItem="wa1-bq-axK" firstAttribute="top" secondItem="Fmh-Aq-KCl" secondAttribute="bottom" id="Sjh-87-kUZ"/>
                             <constraint firstItem="LBQ-US-ahY" firstAttribute="leading" secondItem="NKs-65-d4z" secondAttribute="leading" constant="20" id="Z6S-fc-16O"/>
                             <constraint firstItem="wa1-bq-axK" firstAttribute="top" secondItem="Z33-uU-Jkl" secondAttribute="bottom" id="ivf-me-MQL"/>
                             <constraint firstAttribute="trailing" secondItem="LBQ-US-ahY" secondAttribute="trailing" constant="20" id="prM-qS-V3A"/>
                             <constraint firstAttribute="trailing" secondItem="Z33-uU-Jkl" secondAttribute="trailing" id="u88-gn-axH"/>
+                            <constraint firstItem="Fmh-Aq-KCl" firstAttribute="top" secondItem="stb-VY-iL8" secondAttribute="bottom" id="w3R-5K-lPb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="3pC-Oq-bj9">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="ZAd-6a-w81">
-                            <connections>
-                                <action selector="btnLogout:" destination="Dms-TU-nWO" id="QRK-vm-Qu7"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="3pC-Oq-bj9"/>
                     <connections>
                         <outlet property="btnCallOrCancelUber" destination="xSu-Tz-Mh9" id="af7-wq-vac"/>
                         <outlet property="mapView" destination="LBQ-US-ahY" id="2ga-ZI-IOD"/>
@@ -146,5 +187,6 @@
     </scenes>
     <resources>
         <image name="background" width="1280" height="949"/>
+        <image name="icons8-user_group_man_man" width="40" height="40"/>
     </resources>
 </document>

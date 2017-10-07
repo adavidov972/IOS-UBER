@@ -20,7 +20,7 @@
 		AE02EFE91F5C7E59000741DD /* Driver.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE02EFE81F5C7E59000741DD /* Driver.storyboard */; };
 		AE02EFEB1F5C7E72000741DD /* Empty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE02EFEA1F5C7E72000741DD /* Empty.storyboard */; };
 		AE02EFEE1F5C7EB6000741DD /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02EFED1F5C7EB6000741DD /* FlowController.swift */; };
-		AE02EFF01F5C9265000741DD /* Rider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02EFEF1F5C9265000741DD /* Rider.swift */; };
+		AE02EFF01F5C9265000741DD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02EFEF1F5C9265000741DD /* User.swift */; };
 		AE02EFF21F5DC117000741DD /* AcceptRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02EFF11F5DC117000741DD /* AcceptRequestViewController.swift */; };
 		AE02EFF51F5E6927000741DD /* uberDriverIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = AE02EFF31F5E6927000741DD /* uberDriverIcon.png */; };
 		AE02EFF61F5E6927000741DD /* uberRiderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = AE02EFF41F5E6927000741DD /* uberRiderIcon.png */; };
@@ -52,7 +52,7 @@
 		AE02EFE81F5C7E59000741DD /* Driver.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Driver.storyboard; sourceTree = "<group>"; };
 		AE02EFEA1F5C7E72000741DD /* Empty.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Empty.storyboard; sourceTree = "<group>"; };
 		AE02EFED1F5C7EB6000741DD /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlowController.swift; path = Uber/FlowController.swift; sourceTree = "<group>"; };
-		AE02EFEF1F5C9265000741DD /* Rider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Rider.swift; path = Uber/Rider.swift; sourceTree = "<group>"; };
+		AE02EFEF1F5C9265000741DD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Uber/User.swift; sourceTree = "<group>"; };
 		AE02EFF11F5DC117000741DD /* AcceptRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AcceptRequestViewController.swift; path = Uber/AcceptRequestViewController.swift; sourceTree = "<group>"; };
 		AE02EFF31F5E6927000741DD /* uberDriverIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uberDriverIcon.png; path = Uber/uberDriverIcon.png; sourceTree = "<group>"; };
 		AE02EFF41F5E6927000741DD /* uberRiderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uberRiderIcon.png; path = Uber/uberRiderIcon.png; sourceTree = "<group>"; };
@@ -90,12 +90,12 @@
 				AE1FD5111F73B8580008170C /* SignUpViewController.swift */,
 				AEFA18E71F6713CD00DA33B1 /* FirebaseController.swift */,
 				AEFA18ED1F6A484600DA33B1 /* Request.swift */,
+				AE02EFEF1F5C9265000741DD /* User.swift */,
 				AE02EFEC1F5C7E9C000741DD /* storyboards */,
 				AE02F0E21F63F605000741DD /* Rider */,
 				AE02F0E01F63F5A0000741DD /* Driver */,
 				AE02EFB31F595635000741DD /* Assets.xcassets */,
 				AE02EFB51F595635000741DD /* LaunchScreen.storyboard */,
-				AE02EFEF1F5C9265000741DD /* Rider.swift */,
 				AE02EFB81F595635000741DD /* Info.plist */,
 				AE02EFBE1F59645A000741DD /* GoogleService-Info.plist */,
 				AE1FD50D1F6DC7630008170C /* phoneIcon.png */,
@@ -283,13 +283,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Uber-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E8FDEF133C4F440D153CEF70 /* [CP] Embed Pods Frameworks */ = {
@@ -298,9 +301,24 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Uber/Pods-Uber-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/libPhoneNumber-iOS/libPhoneNumber_iOS.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libPhoneNumber_iOS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -319,7 +337,7 @@
 				AEFA18EE1F6A484600DA33B1 /* Request.swift in Sources */,
 				AE02EFAF1F595635000741DD /* LoginViewController.swift in Sources */,
 				AE02EFE51F5C7A45000741DD /* DriverTableViewController.swift in Sources */,
-				AE02EFF01F5C9265000741DD /* Rider.swift in Sources */,
+				AE02EFF01F5C9265000741DD /* User.swift in Sources */,
 				AE02EFE11F5AB62A000741DD /* RiderViewController.swift in Sources */,
 				AE02EFEE1F5C7EB6000741DD /* FlowController.swift in Sources */,
 				AE02EFF21F5DC117000741DD /* AcceptRequestViewController.swift in Sources */,
@@ -463,6 +481,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D1CE3C90280550639FB6A487 /* Pods-Uber.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J6YXWQQ4YM;
 				INFOPLIST_FILE = Uber/Info.plist;
@@ -478,6 +497,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0EBEFB1574A9EAEA562BADCD /* Pods-Uber.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J6YXWQQ4YM;
 				INFOPLIST_FILE = Uber/Info.plist;

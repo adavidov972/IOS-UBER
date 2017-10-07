@@ -13,7 +13,6 @@ import MapKit
 
 class DriverTableViewController: UITableViewController,CLLocationManagerDelegate {
     
-    @IBOutlet weak var cellView: UIView!
     var ridersRequests : [Request] = []
     let locationManager = CLLocationManager()
     var driverLocation = CLLocationCoordinate2D()
@@ -63,11 +62,9 @@ class DriverTableViewController: UITableViewController,CLLocationManagerDelegate
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> DriverTableViewRequestsListCellTableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DriverTableViewRequestsListCellTableViewCell
         let request = ridersRequests [indexPath.row]
-        cell.setRequest(request: request, driverClLocation: CLLocation(latitude: driverLocation.latitude, longitude: driverLocation.longitude))
         
-        if indexPath.row%2 == 0 {
-            cell.backgroundView?.backgroundColor = UIColor .groupTableViewBackground
-        }
+        let isEven = indexPath.row%2 == 0
+        cell.setRequest(request: request, driverClLocation: CLLocation(latitude: driverLocation.latitude, longitude: driverLocation.longitude),isEven: isEven)
         
         return cell
     }

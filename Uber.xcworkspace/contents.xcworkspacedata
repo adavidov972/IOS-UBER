@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:SideBarMenu.swift">
+   </FileRef>
+   <FileRef
+      location = "group:SideBarMenu.xib">
+   </FileRef>
+   <FileRef
       location = "group:Uber.xcodeproj">
    </FileRef>
    <FileRef

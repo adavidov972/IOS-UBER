@@ -2,4 +2,54 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/leveldb-library/util/cache.cc"
+            timestampString = "528985841.567037"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "4"
+            endingLineNumber = "4"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "leveldb::Cache::~Cache()"
+                  moduleName = "leveldb"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/avi.davidov/GitHub/Iphone/Swift/Iphone/Uber/Pods/leveldb-library/util/cache.cc"
+                  timestampString = "529001397.885598"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "leveldb::Cache::~Cache()"
+                  moduleName = "leveldb"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/avi.davidov/GitHub/Iphone/Swift/Iphone/Uber/Pods/leveldb-library/util/cache.cc"
+                  timestampString = "529001397.892703"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

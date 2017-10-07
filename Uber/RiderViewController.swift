@@ -11,7 +11,7 @@ import MapKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class RiderViewController: UIViewController, CLLocationManagerDelegate {
+class RiderViewController: UIViewController, CLLocationManagerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var btnCallOrCancelUber: UIButton!
@@ -20,6 +20,7 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate {
     var uberCalled = false
     let reference = Database.database().reference().child("uberRequests")
     let currentUser = Auth.auth().currentUser
+    
     
     override func viewDidLoad() {
         
@@ -132,10 +133,39 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    @IBAction func btnLogout(_ sender: Any) {
+    @IBAction func logoutTapped(_ sender: Any) {
         
         try? Auth.auth().signOut()
         FlowController.shared.determineRoot()
+    }
+    
+   
+    @IBAction func changePropertiesTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func addOrChageUserPhoto(_ sender: UIButton) {
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+
+        let alert = UIAlertController(title: "Change photo", message: "Pick source", preferredStyle: .actionSheet)
+        let cameraAction = UIAlertAction(title: "Open camera", style: .default) { (action) in
+            imagePicker.sourceType = .camera
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        alert.addAction(cameraAction)
+        
+        let libraryAction = UIAlertAction(title: "Pick drom library", style: .default) { (action) in
+            imagePicker.sourceType = .photoLibrary
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        alert.addAction(cameraAction)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let imagePicked = info [UIImagePickerControllerEditedImage]{
+            
+        }
     }
 }
 
