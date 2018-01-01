@@ -25,13 +25,13 @@
                   symbolName = "leveldb::Cache::~Cache()"
                   moduleName = "leveldb"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/avi.davidov/GitHub/Iphone/Swift/Iphone/Uber/Pods/leveldb-library/util/cache.cc"
-                  timestampString = "529001397.885598"
+                  urlString = "file:///Users/avi.davidov/GitHub/IOS/Swift/Iphone/Uber/Pods/leveldb-library/util/cache.cc"
+                  timestampString = "532810186.81524"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "17"
                   endingLineNumber = "17"
-                  offsetFromSymbolStart = "12">
+                  offsetFromSymbolStart = "8">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -40,13 +40,13 @@
                   symbolName = "leveldb::Cache::~Cache()"
                   moduleName = "leveldb"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/avi.davidov/GitHub/Iphone/Swift/Iphone/Uber/Pods/leveldb-library/util/cache.cc"
-                  timestampString = "529001397.892703"
+                  urlString = "file:///Users/avi.davidov/GitHub/IOS/Swift/Iphone/Uber/Pods/leveldb-library/util/cache.cc"
+                  timestampString = "532810186.834956"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "16"
                   endingLineNumber = "16"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>

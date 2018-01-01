@@ -30,6 +30,10 @@
 		AE1FD5101F6DC82C0008170C /* user_plus.png in Resources */ = {isa = PBXBuildFile; fileRef = AE1FD50F1F6DC82C0008170C /* user_plus.png */; };
 		AE1FD5121F73B8580008170C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1FD5111F73B8580008170C /* SignUpViewController.swift */; };
 		AE36C6AD1F7830710023271B /* ToolbarTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE36C6AC1F7830710023271B /* ToolbarTextField.swift */; };
+		AE495AF71FC0B0BC00517B94 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE495AF61FC0B0BC00517B94 /* RoundedButton.swift */; };
+		AE495AF91FC0B16900517B94 /* RoundedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE495AF81FC0B16900517B94 /* RoundedLabel.swift */; };
+		AE55D64A1F895F7C005BD731 /* SidebarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE55D6491F895F7C005BD731 /* SidebarView.xib */; };
+		AE55D64C1F896DFF005BD731 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE55D64B1F896DFF005BD731 /* SidebarView.swift */; };
 		AEFA18E81F6713CD00DA33B1 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFA18E71F6713CD00DA33B1 /* FirebaseController.swift */; };
 		AEFA18EC1F69A62400DA33B1 /* DriverTableViewRequestsListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFA18EB1F69A62400DA33B1 /* DriverTableViewRequestsListCellTableViewCell.swift */; };
 		AEFA18EE1F6A484600DA33B1 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFA18ED1F6A484600DA33B1 /* Request.swift */; };
@@ -62,6 +66,10 @@
 		AE1FD50F1F6DC82C0008170C /* user_plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_plus.png; sourceTree = "<group>"; };
 		AE1FD5111F73B8580008170C /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = Uber/SignUpViewController.swift; sourceTree = "<group>"; };
 		AE36C6AC1F7830710023271B /* ToolbarTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarTextField.swift; sourceTree = "<group>"; };
+		AE495AF61FC0B0BC00517B94 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		AE495AF81FC0B16900517B94 /* RoundedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedLabel.swift; sourceTree = "<group>"; };
+		AE55D6491F895F7C005BD731 /* SidebarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidebarView.xib; sourceTree = "<group>"; };
+		AE55D64B1F896DFF005BD731 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		AEFA18E71F6713CD00DA33B1 /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		AEFA18EB1F69A62400DA33B1 /* DriverTableViewRequestsListCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DriverTableViewRequestsListCellTableViewCell.swift; path = Uber/DriverTableViewRequestsListCellTableViewCell.swift; sourceTree = "<group>"; };
 		AEFA18ED1F6A484600DA33B1 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -119,6 +127,7 @@
 		AE02EFAB1F595635000741DD /* Uber */ = {
 			isa = PBXGroup;
 			children = (
+				AE495AF11FC0B05500517B94 /* extentions */,
 				AE36C6A61F78303A0023271B /* view */,
 			);
 			path = Uber;
@@ -128,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				AE02EFB01F595635000741DD /* Rider.storyboard */,
+				AE55D6491F895F7C005BD731 /* SidebarView.xib */,
+				AE55D64B1F896DFF005BD731 /* SidebarView.swift */,
 				AE02EFE81F5C7E59000741DD /* Driver.storyboard */,
 				AE02EFE61F5C7E26000741DD /* Login.storyboard */,
 				AE02EFEA1F5C7E72000741DD /* Empty.storyboard */,
@@ -160,8 +171,17 @@
 			isa = PBXGroup;
 			children = (
 				AE36C6AC1F7830710023271B /* ToolbarTextField.swift */,
+				AE495AF61FC0B0BC00517B94 /* RoundedButton.swift */,
+				AE495AF81FC0B16900517B94 /* RoundedLabel.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		AE495AF11FC0B05500517B94 /* extentions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = extentions;
 			sourceTree = "<group>";
 		};
 		BEBCCAA8735C4691429486C9 /* Frameworks */ = {
@@ -217,7 +237,7 @@
 					AE02EFA81F595635000741DD = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = J6YXWQQ4YM;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -250,6 +270,7 @@
 				AE02EFB71F595635000741DD /* LaunchScreen.storyboard in Resources */,
 				AE02EFEB1F5C7E72000741DD /* Empty.storyboard in Resources */,
 				AE02EFF61F5E6927000741DD /* uberRiderIcon.png in Resources */,
+				AE55D64A1F895F7C005BD731 /* SidebarView.xib in Resources */,
 				AE02EFBF1F59645A000741DD /* GoogleService-Info.plist in Resources */,
 				AE02EFB41F595635000741DD /* Assets.xcassets in Resources */,
 				AE02EFE71F5C7E26000741DD /* Login.storyboard in Resources */,
@@ -292,7 +313,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E8FDEF133C4F440D153CEF70 /* [CP] Embed Pods Frameworks */ = {
@@ -334,6 +355,7 @@
 			files = (
 				AEFA18E81F6713CD00DA33B1 /* FirebaseController.swift in Sources */,
 				AE36C6AD1F7830710023271B /* ToolbarTextField.swift in Sources */,
+				AE55D64C1F896DFF005BD731 /* SidebarView.swift in Sources */,
 				AEFA18EE1F6A484600DA33B1 /* Request.swift in Sources */,
 				AE02EFAF1F595635000741DD /* LoginViewController.swift in Sources */,
 				AE02EFE51F5C7A45000741DD /* DriverTableViewController.swift in Sources */,
@@ -342,6 +364,8 @@
 				AE02EFEE1F5C7EB6000741DD /* FlowController.swift in Sources */,
 				AE02EFF21F5DC117000741DD /* AcceptRequestViewController.swift in Sources */,
 				AE02F0DF1F63F54D000741DD /* DriverNewRideViewController.swift in Sources */,
+				AE495AF91FC0B16900517B94 /* RoundedLabel.swift in Sources */,
+				AE495AF71FC0B0BC00517B94 /* RoundedButton.swift in Sources */,
 				AE02EFAD1F595635000741DD /* AppDelegate.swift in Sources */,
 				AE02F0E41F640124000741DD /* RiderNewRideViewController.swift in Sources */,
 				AE1FD5121F73B8580008170C /* SignUpViewController.swift in Sources */,
@@ -483,11 +507,13 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = J6YXWQQ4YM;
 				INFOPLIST_FILE = Uber/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.avidavidov.newPlayGround.Uber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};
@@ -499,6 +525,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = J6YXWQQ4YM;
 				INFOPLIST_FILE = Uber/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

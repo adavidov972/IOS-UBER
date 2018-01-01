@@ -36,6 +36,12 @@ class SignUpViewController: UIViewController {
         txtPassword.endEditing(true)
     }
     
+    func senPic(){
+        
+        let image = UIImage(named:"user_plus")
+        
+    }
+    
     func makeSignup() {
         
         SVProgressHUD.show()

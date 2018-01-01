@@ -9,14 +9,18 @@
 import UIKit
 import MapKit
 
-class Rider: NSObject {
+class User {
     
-    var userEmail : String
-    var userUid : String
-    var userPic : UIImage
-    var userLocation : CLLocationCoordinate2D
+    var userEmail : String?
+    var userUid : String?
+    var userPic : UIImage?
+    var userLocation : CLLocationCoordinate2D?
     
 
+    init() {
+        
+    }
+    
     init(userEmail:String, userUid : String, userLocation : CLLocationCoordinate2D, userPic:UIImage) {
         
         self.userEmail = userEmail
@@ -25,9 +29,7 @@ class Rider: NSObject {
         self.userPic = userPic
     }
     
-//    override init() {
-//        super.init()
-//    }
-//    
+    
+    
     
 }

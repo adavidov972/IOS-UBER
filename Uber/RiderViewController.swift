@@ -13,6 +13,10 @@ import FirebaseAuth
 
 class RiderViewController: UIViewController, CLLocationManagerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    @IBOutlet weak var sideBarLeftConstrain: NSLayoutConstraint!
+    @IBOutlet weak var lblSearchingForUber: UILabel!
+    @IBOutlet weak var sideBaeMenu: UIView!
+    @IBOutlet weak var btnUserImage: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var btnCallOrCancelUber: UIButton!
     let locationManager = CLLocationManager()
@@ -20,12 +24,17 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, UINaviga
     var uberCalled = false
     let reference = Database.database().reference().child("uberRequests")
     let currentUser = Auth.auth().currentUser
+    var user = User()
+    let imagePicker = UIImagePickerController()
+    var sideBarOpen = false
+    var timer = Timer()
+    var lblSearchCounter = 0
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        lblSearchingForUber.isHidden = true
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
@@ -37,6 +46,8 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, UINaviga
                 
                 self.uberCalled = true
                 self.btnCallOrCancelUber.setTitle("Cancel Uber", for: .normal)
+                self.lblSearchingForUber.isHidden = false
+                self.timer = Timer.scheduledTimer (timeInterval: 1.0, target: self, selector: #selector (RiderViewController.animate), userInfo: nil, repeats: true)
                 print(snapshot)
             })
             
@@ -68,7 +79,10 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, UINaviga
             let annotation = MKPointAnnotation()
             annotation.coordinate = center
             annotation.title = "Me"
-            mapView.addAnnotation(annotation)
+            UIView.animate(withDuration: 0.8, animations: {
+                self.mapView.addAnnotation(annotation)
+            })
+            
         }
     }
     
@@ -86,7 +100,9 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, UINaviga
                     self.reference.child(Uid).removeAllObservers()
                 })
                 btnCallOrCancelUber.setTitle("Call an Uber", for: .normal)
+                lblSearchingForUber.isHidden = true
                 uberCalled = false
+                timer.invalidate()
                 
             }else{
                 
@@ -99,6 +115,9 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, UINaviga
                     reference.childByAutoId().setValue(newRequestDictionary)
                     reference.removeAllObservers()
                     btnCallOrCancelUber.setTitle("Cancel Uber", for: .normal)
+                    lblSearchingForUber.isHidden = false
+                    timer.invalidate()
+                    timer = Timer.scheduledTimer (timeInterval: 1.0, target: self, selector: #selector (RiderViewController.animate), userInfo: nil, repeats: true)
                     uberCalled = true
                     
                     reference.queryOrdered(byChild: "userId").queryEqual(toValue: Uid).observe(.childChanged, with: { (snapshot) in
@@ -115,7 +134,6 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, UINaviga
                             }else{
                                 
                                 //NO ONE APPROVED THE REQUEST YET
-                                
                             }
                         }
                     })
@@ -133,42 +151,98 @@ class RiderViewController: UIViewController, CLLocationManagerDelegate, UINaviga
         }
     }
     
+    @objc func animate() {
+        let text = ["", "Searching for UBER  ......"]
+        
+        lblSearchingForUber.text = text[lblSearchCounter]
+        lblSearchCounter+=1
+
+        if lblSearchCounter == 2 {
+            lblSearchCounter = 0
+        }
+    }
     @IBAction func logoutTapped(_ sender: Any) {
         
         try? Auth.auth().signOut()
         FlowController.shared.determineRoot()
     }
     
-   
-    @IBAction func changePropertiesTapped(_ sender: UIButton) {
-    }
-    
     @IBAction func addOrChageUserPhoto(_ sender: UIButton) {
         
-        let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-
-        let alert = UIAlertController(title: "Change photo", message: "Pick source", preferredStyle: .actionSheet)
+        
+        let alert = UIAlertController(title: "Pick image source", message: "", preferredStyle: .actionSheet)
         let cameraAction = UIAlertAction(title: "Open camera", style: .default) { (action) in
-            imagePicker.sourceType = .camera
-            self.present(imagePicker, animated: true, completion: nil)
+            self.imagePicker.sourceType = .camera
+            self.present(self.imagePicker, animated: true, completion: nil)
         }
         alert.addAction(cameraAction)
         
-        let libraryAction = UIAlertAction(title: "Pick drom library", style: .default) { (action) in
-            imagePicker.sourceType = .photoLibrary
-            self.present(imagePicker, animated: true, completion: nil)
+        let libraryAction = UIAlertAction(title: "Pick from library", style: .default) { (action) in
+            self.imagePicker.sourceType = .photoLibrary
+            self.present(self.imagePicker, animated: true, completion: nil)
         }
-        alert.addAction(cameraAction)
+        alert.addAction(libraryAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let imagePicked = info [UIImagePickerControllerEditedImage]{
+        if let imagePicked = info [UIImagePickerControllerOriginalImage] as? UIImage{
             
+            user.userPic = imagePicked
+            btnUserImage.setImage(imagePicked, for: .normal)
+        }
+        
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func openCloseSideBar(_ sender: UIBarButtonItem) {
+        
+        if sideBarOpen {
+            
+            //The side bar is open
+            
+            sideBarLeftConstrain.constant = -170
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
+            btnCallOrCancelUber.isEnabled = true
+
+        }else{
+            
+            //The sidebar is close
+            sideBarLeftConstrain.constant = 0
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
+            btnCallOrCancelUber.isEnabled = false
+
+
+        }
+        sideBarOpen = !sideBarOpen
+    }
+    
+    @IBAction func viewGestureTapped(_ sender: Any) {
+        
+        if sideBarOpen {
+            
+            //The side bar is open
+            
+            sideBarLeftConstrain.constant = -170
+            btnCallOrCancelUber.isEnabled = true
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
+            sideBarOpen = !sideBarOpen
         }
     }
 }
-
 
 
 

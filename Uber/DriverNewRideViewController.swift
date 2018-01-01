@@ -64,8 +64,9 @@ class DriverNewRideViewController: UIViewController, CLLocationManagerDelegate, 
         
     }
     
+    
     @IBAction func btnPhoneToRider(_ sender: Any) {
-        
+        UIApplication.shared.open(URL(string:"tel://0546868414")!, options: [:], completionHandler: nil)
     }
     
     

@@ -12,5 +12,5 @@ pod 'Firebase/Database'
 pod 'SVProgressHUD'
 pod 'Firebase/Messaging'
 pod 'libPhoneNumber-iOS', '~> 0.8'
-
+pod 'Firebase/Storage'
 end
