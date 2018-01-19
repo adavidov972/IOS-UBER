@@ -75,6 +75,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                 
             }else{
                 SVProgressHUD.dismiss()
+                
                 Database.database().reference().child("usersDetails").child((Auth.auth().currentUser?.uid)!).updateChildValues(["FCMToken" : Messaging.messaging().fcmToken!])
                 FlowController.shared.determineRoot()
             }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TvV-4h-30V">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TvV-4h-30V">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,30 +29,6 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LBQ-US-ahY">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSu-Tz-Mh9" customClass="RoundedButton" customModule="Uber" customModuleProvider="target">
-                                <rect key="frame" x="36" y="459" width="303" height="60"/>
-                                <color key="backgroundColor" red="0.1450980392" green="0.63529411759999999" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="8XT-pK-Eee"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Call an Uber">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnCallOrCancelUber:" destination="Dms-TU-nWO" eventType="touchUpInside" id="cQ6-jy-UmL"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Searching for UBER  ......" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQM-6v-wyl">
-                                <rect key="frame" x="36" y="551" width="303" height="60"/>
-                                <color key="backgroundColor" red="0.1450980392" green="0.63529411759999999" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="lFw-p5-92r"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fmh-Aq-KCl" userLabel="Side Bar Menu">
                                 <rect key="frame" x="-170" y="64" width="170" height="603"/>
                                 <subviews>
@@ -74,7 +50,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="130" height="30"/>
                                                 <state key="normal" title="Change propeties"/>
                                                 <connections>
-                                                    <action selector="changePropertiesTapped:" destination="Dms-TU-nWO" eventType="touchUpInside" id="oby-9b-EYs"/>
+                                                    <action selector="changePropertiesTapped:" destination="Dms-TU-nWO" eventType="touchUpInside" id="2df-q3-lx0"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQQ-Ii-OGC">
@@ -97,24 +73,32 @@
                                     <constraint firstAttribute="trailing" secondItem="Me3-wV-8Bb" secondAttribute="trailing" constant="20" id="vyQ-sN-3pZ"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grU-kd-AxL" customClass="CircleButton" customModule="Uber" customModuleProvider="target">
+                                <rect key="frame" x="109.5" y="463" width="156" height="156"/>
+                                <color key="backgroundColor" red="0.60547495920727679" green="1" blue="0.67368750389863052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="156" id="ojI-NA-LnS"/>
+                                    <constraint firstAttribute="width" constant="156" id="zWZ-UW-S0u"/>
+                                </constraints>
+                                <state key="normal" title="Call an Uber"/>
+                                <connections>
+                                    <action selector="CallOrCancelUberBtnTapped:" destination="Dms-TU-nWO" eventType="touchUpInside" id="qud-5f-lfa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="xSu-Tz-Mh9" firstAttribute="leading" secondItem="NKs-65-d4z" secondAttribute="leadingMargin" constant="20" id="3O8-MM-MS8"/>
-                            <constraint firstItem="zQM-6v-wyl" firstAttribute="leading" secondItem="NKs-65-d4z" secondAttribute="leadingMargin" constant="20" id="77g-Ha-mZ0"/>
-                            <constraint firstItem="xSu-Tz-Mh9" firstAttribute="centerX" secondItem="NKs-65-d4z" secondAttribute="centerX" id="8Fm-Pj-O8I"/>
+                            <constraint firstItem="wa1-bq-axK" firstAttribute="top" secondItem="grU-kd-AxL" secondAttribute="bottom" constant="48" id="2Mc-Mm-8Gd"/>
                             <constraint firstItem="Z33-uU-Jkl" firstAttribute="leading" secondItem="NKs-65-d4z" secondAttribute="leading" id="8MY-Ou-n80"/>
                             <constraint firstItem="Fmh-Aq-KCl" firstAttribute="top" secondItem="stb-VY-iL8" secondAttribute="bottom" id="90Q-00-XUW"/>
                             <constraint firstItem="Fmh-Aq-KCl" firstAttribute="leading" secondItem="NKs-65-d4z" secondAttribute="leading" constant="-170" id="9dX-lG-Y9Z"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xSu-Tz-Mh9" secondAttribute="trailing" constant="20" id="9nm-NC-JVd"/>
                             <constraint firstItem="wa1-bq-axK" firstAttribute="top" secondItem="LBQ-US-ahY" secondAttribute="bottom" id="A7q-s8-J2u"/>
                             <constraint firstItem="wa1-bq-axK" firstAttribute="top" secondItem="Z33-uU-Jkl" secondAttribute="bottom" id="EGG-9A-ITm"/>
                             <constraint firstAttribute="trailing" secondItem="LBQ-US-ahY" secondAttribute="trailing" id="Fmc-MV-Ts7"/>
                             <constraint firstItem="LBQ-US-ahY" firstAttribute="leading" secondItem="Fmh-Aq-KCl" secondAttribute="trailing" id="JVn-tI-Bmr"/>
                             <constraint firstItem="Z33-uU-Jkl" firstAttribute="top" secondItem="stb-VY-iL8" secondAttribute="bottom" id="LFN-KL-bte"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zQM-6v-wyl" secondAttribute="trailing" constant="20" id="QH0-aX-gNZ"/>
-                            <constraint firstItem="zQM-6v-wyl" firstAttribute="top" secondItem="xSu-Tz-Mh9" secondAttribute="bottom" constant="32" id="Xa8-Ej-GYL"/>
+                            <constraint firstItem="grU-kd-AxL" firstAttribute="centerX" secondItem="NKs-65-d4z" secondAttribute="centerX" id="XKk-a4-c6l"/>
                             <constraint firstItem="wa1-bq-axK" firstAttribute="top" secondItem="Fmh-Aq-KCl" secondAttribute="bottom" id="dMQ-0w-V0I"/>
                             <constraint firstItem="LBQ-US-ahY" firstAttribute="top" secondItem="stb-VY-iL8" secondAttribute="bottom" id="drN-ER-VzH"/>
                             <constraint firstAttribute="trailing" secondItem="Z33-uU-Jkl" secondAttribute="trailing" id="u88-gn-axH"/>
@@ -131,9 +115,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="btnCallOrCancelUber" destination="xSu-Tz-Mh9" id="af7-wq-vac"/>
+                        <outlet property="btnCallOrCancelUber" destination="grU-kd-AxL" id="7aD-iy-WBw"/>
                         <outlet property="btnUserImage" destination="4g9-v1-PIj" id="UuE-Fl-nCd"/>
-                        <outlet property="lblSearchingForUber" destination="zQM-6v-wyl" id="sfO-rX-eJx"/>
                         <outlet property="mapView" destination="LBQ-US-ahY" id="2ga-ZI-IOD"/>
                         <outlet property="sideBaeMenu" destination="Fmh-Aq-KCl" id="lm6-CL-e4s"/>
                         <outlet property="sideBarLeftConstrain" destination="9dX-lG-Y9Z" id="EO7-JW-kT9"/>
@@ -147,7 +130,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1712.8" y="732.68365817091455"/>
+            <point key="canvasLocation" x="1834" y="733"/>
         </scene>
         <!--Rider New Ride View Controller-->
         <scene sceneID="ObJ-9P-iu1">

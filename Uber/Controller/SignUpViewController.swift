@@ -36,15 +36,10 @@ class SignUpViewController: UIViewController {
         txtPassword.endEditing(true)
     }
     
-    func senPic(){
-        
-        let image = UIImage(named:"user_plus")
-        
-    }
-    
     func makeSignup() {
         
         SVProgressHUD.show()
+        let isdriver = self.riderDriverSegmented.selectedSegmentIndex != 0
         
         Auth.auth().createUser(withEmail: txtEmail.text!, password: txtPassword.text!, completion: { (user, error) in
             
@@ -55,23 +50,29 @@ class SignUpViewController: UIViewController {
             }else{
                 
                 let request = user?.createProfileChangeRequest()
-                if self.riderDriverSegmented.selectedSegmentIndex == 0 {
-                    
-                    //RIDER
-                    request!.displayName = "Rider"
-                    
-                }else{
+                if isdriver {
                     
                     //DRIVER
                     request?.displayName = "Driver"
+                    
+                }else{
+                    
+                    //RIDER
+                    request!.displayName = "Rider"
                 }
                 
                 request?.commitChanges(completion: { (err) in
                     FlowController.shared.determineRoot()
                 })
                 
-                let userDetailsDictionary : [String:String] = ["fullName": self.txtFullName.text!, "PhoneNumber":self.txtPhoneNumber.text!, "FCMToken" : Messaging.messaging().fcmToken!]
-                Database.database().reference().child("usersDetails").child((Auth.auth().currentUser?.uid)!).setValue(userDetailsDictionary)
+                let userInfo : [String:Any] = [
+                    "fullName": self.txtFullName.text!,
+                    "PhoneNumber":self.txtPhoneNumber.text!,
+                    "FCMToken" : Messaging.messaging().fcmToken!,
+                    "email" : self.txtEmail.text!,
+                    "isDriver" : isdriver]
+                
+                FirebaseManager.manager.createFirebaseDBUser(userinfo: userInfo)
                 SVProgressHUD.dismiss()
             }
         })
@@ -82,8 +83,11 @@ class SignUpViewController: UIViewController {
         if txtEmail.text == "" || txtPassword.text == "" {
             displayAlert(title: "Missing information", message: "Please enter Email and password correctly")
         }else{
-            isPhoneNumberValid(phoneStr: txtPhoneNumber.text!)
-            makeSignup()
+            if LibPhoneCheckManager.manager.isPhoneNumberValid(phoneStr: txtPhoneNumber.text!) {
+              makeSignup()
+            }else {
+                displayAlert(title: "Phone number is incorrect", message: "Please enter valid phone number")
+            }
         }
     }
     
@@ -98,20 +102,6 @@ class SignUpViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func isPhoneNumberValid(phoneStr : String)-> Bool {
-        
-        let phoneUtil = NBPhoneNumberUtil()
-        
-        do {
-            let phoneNumber: NBPhoneNumber = try phoneUtil.parse(phoneStr, defaultRegion: "IL")
-            return phoneUtil.isValidNumber(forRegion: phoneNumber, regionCode: "IL")
-        }
-        catch let error as NSError {
-            print(error.localizedDescription)
-        }
-        return false
-    }
-
     @IBAction func textFieldDidEndOnExitAction(_ sender: Any) {
         makeSignup()
     }
